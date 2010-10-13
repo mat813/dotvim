@@ -1,3 +1,6 @@
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " $Abso: vimrc,v 1e2c283a108a 2007/09/11 16:47:33 mat $
 source $VIMRUNTIME/vimrc_example.vim
 
