@@ -21,8 +21,6 @@ if &term == "screen"
   set ttymouse=xterm2
 endif
 
-helptags ~/.vim/doc
-
 match Todo / /
 
 map + :noh<CR>
