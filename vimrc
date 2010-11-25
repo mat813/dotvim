@@ -14,9 +14,6 @@ set sts=2 sw=2
 set cindent
 set history=500
 set mouse=
-if has("gui_running")
-  set encoding=utf-8
-endif
 if &term == "screen"
   set ttymouse=xterm2
 endif
