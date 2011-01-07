@@ -39,6 +39,8 @@ if has("autocmd") && exists("+omnifunc")
 	\	endif
 endif
 
+runtime macros/matchit.vim
+
 "-- from http://vimcasts.org/episodes/show-invisibles/
     " Shortcut to rapidly toggle `set list`
     nmap <leader>l :set list!<CR>
