@@ -64,3 +64,18 @@
 [submodule "bundle/vim-conque"]
 	path = bundle/vim-conque
 	url = https://github.com/rson/vim-conque.git
+[submodule "bundle/project.tar.gz"]
+	path = bundle/project.tar.gz
+	url = https://github.com/vim-scripts/project.tar.gz.git
+[submodule "bundle/Align"]
+	path = bundle/Align
+	url = https://github.com/vim-scripts/Align.git
+[submodule "bundle/matchit.zip"]
+	path = bundle/matchit.zip
+	url = https://github.com/vim-scripts/matchit.zip.git
+[submodule "bundle/Vimball"]
+	path = bundle/Vimball
+	url = https://github.com/vim-scripts/Vimball.git
+[submodule "bundle/Visual-Mark"]
+	path = bundle/Visual-Mark
+	url = https://github.com/vim-scripts/Visual-Mark.git
