@@ -4,36 +4,45 @@ call pathogen#helptags()
 " $Abso: vimrc,v 1e2c283a108a 2007/09/11 16:47:33 mat $
 source $VIMRUNTIME/vimrc_example.vim
 
-set nobackup		  " don't keep backups.
-set nowritebackup	  " really don't.
+set nobackup			" don't keep backups.
+set nowritebackup		" really don't.
 set directory=$HOME/.vim/tmp//,. " keep backups elsewhere.
 
-set history=500		  " 500 lines of history
-set noincsearch		  " don't do incremental searching
-set background=dark	  " dark background
-set cindent		  " get indentation from C by default
-set foldenable		  " do foldings
-set foldmethod=marker	  " I like my folds with a marker
-set sts=2 sw=2		  " two spaces tabs
-set mouse=		  " always disable mouse in a terminal
+set viminfo=%50,'1000,/500,:500,@500,f1,s100	" Add a bit more than the default.
+set noincsearch			" don't do incremental searching
+set background=dark		" dark background
+set cindent			" get indentation from C by default
+set foldenable			" do foldings
+set foldmethod=marker		" I like my folds with a marker
+set sts=2 sw=2			" two spaces tabs
+set mouse=			" always disable mouse in a terminal
+set modeline			" make sure modeline is enabled
+set autoread			" auto reread modified files
 
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:full            " Complete files like a shell.
+set nolazyredraw		" turn of lazy redraw
 
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
+set wildmenu			" Enhanced command line completion.
+set wildmode=list:full		" Complete files like a shell.
 
-set scrolloff=3                   " Show 3 lines of context around the cursor.
+set ignorecase			" Case-insensitive searching.
+set smartcase			" But case-sensitive if expression contains a capital letter.
 
-set laststatus=2                  " Show the status line all the time
+set scrolloff=3			" Show 3 lines of context around the cursor.
+
+set laststatus=2		" Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 if &term == "screen"
-  set ttymouse=xterm2	  " when in a screen, use xterm2 for the mouse, in case I enable the mouse.
+  set ttymouse=xterm2		" when in a screen, use xterm2 for the mouse, in case I enable the mouse.
 endif
 
-match Todo / /		  " a non breaking space is a bad thing.
+match Todo / /			" a non breaking space is a bad thing.
+
+let mapleader = " "		" have a <Space> for <Leader>.
+
+" No Help, please.
+nmap <F1> <Esc>
 
 map + :noh<CR>
 
@@ -124,4 +133,34 @@ runtime macros/matchit.vim
     else
       set showbreak=...
     endif
+"--
+
+"-- Rails
+autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
+autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
+autocmd User Rails map <Leader>p :Rstep 
+autocmd User Rails map <Leader>sp :RSstep 
+autocmd User Rails map <Leader>tp :RTstep 
+autocmd User Rails map <Leader>m :Rmodel 
+autocmd User Rails map <Leader>c :Rcontroller 
+autocmd User Rails map <Leader>v :Rview 
+autocmd User Rails map <Leader>u :Runittest 
+autocmd User Rails map <Leader>f :Rfunctionaltest 
+autocmd User Rails map <Leader>i :Rintegrationtest 
+autocmd User Rails map <Leader>h :Rhelper 
+autocmd User Rails map <Leader>tm :RTmodel 
+autocmd User Rails map <Leader>tc :RTcontroller 
+autocmd User Rails map <Leader>tv :RTview 
+autocmd User Rails map <Leader>tu :RTunittest 
+autocmd User Rails map <Leader>tf :RTfunctionaltest 
+autocmd User Rails map <Leader>ti :RTintegrationtest 
+autocmd User Rails map <Leader>sm :RSmodel 
+autocmd User Rails map <Leader>sc :RScontroller 
+autocmd User Rails map <Leader>sv :RSview 
+autocmd User Rails map <Leader>su :RSunittest 
+autocmd User Rails map <Leader>sf :RSfunctionaltest 
+autocmd User Rails map <Leader>si :RSintegrationtest 
+autocmd User Rails map <Leader>g :Rconfig 
+autocmd User Rails map <Leader>sg :RSconfig 
+autocmd User Rails map <Leader>tg :RTconfig 
 "--
