@@ -4,21 +4,36 @@ call pathogen#helptags()
 " $Abso: vimrc,v 1e2c283a108a 2007/09/11 16:47:33 mat $
 source $VIMRUNTIME/vimrc_example.vim
 
-set nobackup
-set noincsearch
-set bg=dark
-set cindent
-set foldenable
-set foldmethod=marker
-set sts=2 sw=2
-set cindent
-set history=500
-set mouse=
+set nobackup		  " don't keep backups.
+set nowritebackup	  " really don't.
+set directory=$HOME/.vim/tmp//,. " keep backups elsewhere.
+
+set history=500		  " 500 lines of history
+set noincsearch		  " don't do incremental searching
+set background=dark	  " dark background
+set cindent		  " get indentation from C by default
+set foldenable		  " do foldings
+set foldmethod=marker	  " I like my folds with a marker
+set sts=2 sw=2		  " two spaces tabs
+set mouse=		  " always disable mouse in a terminal
+
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+
+set scrolloff=3                   " Show 3 lines of context around the cursor.
+
+set laststatus=2                  " Show the status line all the time
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
 if &term == "screen"
-  set ttymouse=xterm2
+  set ttymouse=xterm2	  " when in a screen, use xterm2 for the mouse, in case I enable the mouse.
 endif
 
-match Todo / /
+match Todo / /		  " a non breaking space is a bad thing.
 
 map + :noh<CR>
 
