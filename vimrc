@@ -99,7 +99,9 @@ set scrolloff=3			" Show 3 lines of context around the cursor.
 
 set laststatus=2		" Show the status line all the time
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ 
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+set statusline+=%=%-16(\ %l,%c-%v\ %)%P
 
 if &term == "screen"
   set ttymouse=xterm2		" when in a screen, use xterm2 for the mouse, in case I enable the mouse.
@@ -119,6 +121,8 @@ let g:proj_flags="imstg"
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
 let maplocalloader=','
 let php_sql_query=1
 let php_sync_method=0
