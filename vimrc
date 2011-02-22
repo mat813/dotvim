@@ -101,6 +101,7 @@ set laststatus=2		" Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ 
 set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+set statusline+=%{rvm#statusline()}
 set statusline+=%=%-16(\ %l,%c-%v\ %)%P
 
 if &term == "screen"
