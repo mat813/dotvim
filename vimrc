@@ -136,6 +136,8 @@ if has("autocmd") && exists("+omnifunc")
 	\	endif
 endif
 
+nnoremap <F5> :GundoToggle<CR>
+
 runtime macros/matchit.vim
 
 "-- from http://vimcasts.org/episodes/show-invisibles/
@@ -181,7 +183,8 @@ runtime macros/matchit.vim
       let @/=_s
       call cursor(l, c)
     endfunction
-    nnoremap <silent> <F5> :call Preserve("%s/\\s\\+$//e")<CR>
+    nmap <Leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
+    nmap <Leader>= :call Preserve("normal gg=G")<CR>
 "--
 
 "-- from http://vimcasts.org/episodes/working-with-tabs/
