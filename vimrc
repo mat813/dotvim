@@ -124,6 +124,7 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
+let g:gundo_right = 1
 let maplocalloader=','
 let php_sql_query=1
 let php_sync_method=0
