@@ -77,6 +77,8 @@ endif
 set nobackup			" don't keep backups.
 set nowritebackup		" really don't.
 set directory=$HOME/.vim/tmp//,. " keep backups elsewhere.
+set undodir=$HOME/.vim/undo//,.
+set undofile
 
 set viminfo=%50,'1000,/500,:500,@500,f1,s100	" Add a bit more than the default.
 set background=dark		" dark background
