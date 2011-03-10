@@ -215,11 +215,11 @@ runtime macros/matchit.vim
 "--
 
 "-- Rails
-autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
-autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
-autocmd User Rails map <Leader>p :Rstep 
-autocmd User Rails map <Leader>sp :RSstep 
-autocmd User Rails map <Leader>tp :RTstep 
+"autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
+"autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
+"autocmd User Rails map <Leader>p :Rstep 
+"autocmd User Rails map <Leader>sp :RSstep 
+"autocmd User Rails map <Leader>tp :RTstep 
 autocmd User Rails map <Leader>m :Rmodel 
 autocmd User Rails map <Leader>c :Rcontroller 
 autocmd User Rails map <Leader>v :Rview 
@@ -239,7 +239,7 @@ autocmd User Rails map <Leader>sv :RSview
 autocmd User Rails map <Leader>su :RSunittest 
 autocmd User Rails map <Leader>sf :RSfunctionaltest 
 autocmd User Rails map <Leader>si :RSintegrationtest 
-autocmd User Rails map <Leader>g :Rconfig 
+"autocmd User Rails map <Leader>g :Rconfig 
 autocmd User Rails map <Leader>sg :RSconfig 
 autocmd User Rails map <Leader>tg :RTconfig 
 "--
