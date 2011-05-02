@@ -2,7 +2,6 @@ set encoding=utf-8
 
 source $HOME/.vimrc
 
-colorscheme vividchalk
 set mouse=a
 
 set guifont=Monaco:h10

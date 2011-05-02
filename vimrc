@@ -244,3 +244,5 @@ autocmd User Rails map <Leader>si :RSintegrationtest
 autocmd User Rails map <Leader>sg :RSconfig 
 autocmd User Rails map <Leader>tg :RTconfig 
 "--
+
+source $HOME/.vim/colors.vim
