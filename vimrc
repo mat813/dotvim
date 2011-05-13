@@ -102,6 +102,7 @@ set scrolloff=3			" Show 3 lines of context around the cursor.
 set laststatus=2		" Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ 
+set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
 set statusline+=%{rvm#statusline()}
 set statusline+=%=%-16(\ %l,%c-%v\ %)%P
@@ -243,6 +244,16 @@ autocmd User Rails map <Leader>si :RSintegrationtest
 "autocmd User Rails map <Leader>g :Rconfig 
 autocmd User Rails map <Leader>sg :RSconfig 
 autocmd User Rails map <Leader>tg :RTconfig 
+"--
+
+"-- from http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+    if has("autocmd")
+      autocmd User fugitive
+	\ if fugitive#buffer().type() =~# '^\%(tree\|blob\)' |
+	\   nnoremap <buffer> .. :edit %:h<CR> |
+	\ endif
+      autocmd BufReadPost fugitive://* set bufhidden=delete
+    endif
 "--
 
 source $HOME/.vim/colors.vim
