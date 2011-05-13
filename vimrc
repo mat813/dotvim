@@ -217,33 +217,35 @@ runtime macros/matchit.vim
 "--
 
 "-- Rails
-"autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
-"autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
-"autocmd User Rails map <Leader>p :Rstep 
-"autocmd User Rails map <Leader>sp :RSstep 
-"autocmd User Rails map <Leader>tp :RTstep 
-autocmd User Rails map <Leader>m :Rmodel 
-autocmd User Rails map <Leader>c :Rcontroller 
-autocmd User Rails map <Leader>v :Rview 
-autocmd User Rails map <Leader>u :Runittest 
-autocmd User Rails map <Leader>f :Rfunctionaltest 
-autocmd User Rails map <Leader>i :Rintegrationtest 
-autocmd User Rails map <Leader>h :Rhelper 
-autocmd User Rails map <Leader>tm :RTmodel 
-autocmd User Rails map <Leader>tc :RTcontroller 
-autocmd User Rails map <Leader>tv :RTview 
-autocmd User Rails map <Leader>tu :RTunittest 
-autocmd User Rails map <Leader>tf :RTfunctionaltest 
-autocmd User Rails map <Leader>ti :RTintegrationtest 
-autocmd User Rails map <Leader>sm :RSmodel 
-autocmd User Rails map <Leader>sc :RScontroller 
-autocmd User Rails map <Leader>sv :RSview 
-autocmd User Rails map <Leader>su :RSunittest 
-autocmd User Rails map <Leader>sf :RSfunctionaltest 
-autocmd User Rails map <Leader>si :RSintegrationtest 
-"autocmd User Rails map <Leader>g :Rconfig 
-autocmd User Rails map <Leader>sg :RSconfig 
-autocmd User Rails map <Leader>tg :RTconfig 
+    if has("autocmd")
+      "autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
+      "autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
+      "autocmd User Rails map <Leader>p :Rstep 
+      "autocmd User Rails map <Leader>sp :RSstep 
+      "autocmd User Rails map <Leader>tp :RTstep 
+      autocmd User Rails map <Leader>m :Rmodel 
+      autocmd User Rails map <Leader>c :Rcontroller 
+      autocmd User Rails map <Leader>v :Rview 
+      autocmd User Rails map <Leader>u :Runittest 
+      autocmd User Rails map <Leader>f :Rfunctionaltest 
+      autocmd User Rails map <Leader>i :Rintegrationtest 
+      autocmd User Rails map <Leader>h :Rhelper 
+      autocmd User Rails map <Leader>tm :RTmodel 
+      autocmd User Rails map <Leader>tc :RTcontroller 
+      autocmd User Rails map <Leader>tv :RTview 
+      autocmd User Rails map <Leader>tu :RTunittest 
+      autocmd User Rails map <Leader>tf :RTfunctionaltest 
+      autocmd User Rails map <Leader>ti :RTintegrationtest 
+      autocmd User Rails map <Leader>sm :RSmodel 
+      autocmd User Rails map <Leader>sc :RScontroller 
+      autocmd User Rails map <Leader>sv :RSview 
+      autocmd User Rails map <Leader>su :RSunittest 
+      autocmd User Rails map <Leader>sf :RSfunctionaltest 
+      autocmd User Rails map <Leader>si :RSintegrationtest 
+      "autocmd User Rails map <Leader>g :Rconfig 
+      autocmd User Rails map <Leader>sg :RSconfig 
+      autocmd User Rails map <Leader>tg :RTconfig 
+    endif
 "--
 
 "-- from http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
