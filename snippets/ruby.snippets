@@ -1,0 +1,16 @@
+snippet mod module .. included .. end
+	module ${1:`substitute(Filename(), '^.', '\u&', '')`}
+		extend ActiveSupport::Concern
+		
+		included do
+			${2}
+		end
+		
+		module ClassMethods
+			${3}
+		end
+		
+		module InstanceMethods
+			${4}
+		end
+	end

@@ -260,4 +260,6 @@ runtime macros/matchit.vim
     endif
 "--
 
+let g:snippets_dir = "$HOME/.vim/bundle/snipmate.vim/snippets/,$HOME/.vim/snippets/"
+
 source $HOME/.vim/colors.vim
