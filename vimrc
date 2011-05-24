@@ -196,6 +196,8 @@ runtime macros/matchit.vim
     " For mac users (using the 'apple' key)
     map <D-S-]> gt
     map <D-S-[> gT
+    map <D-A-Right> gt
+    map <D-A-Left> gT
     map <D-1> 1gt
     map <D-2> 2gt
     map <D-3> 3gt
