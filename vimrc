@@ -149,9 +149,9 @@ runtime macros/matchit.vim
     nmap <leader>l :set list!<CR>
     " Use the same symbols as TextMate for tabstops and EOLs
     if &encoding ==? "utf-8"
-      set listchars=tab:▸\ ,eol:¬,trail:❖
+      set listchars=tab:▸–,eol:¶,trail:❖,nbsp:¬,extends:»,precedes:«
     else
-      set listchars=tab:>\ ,eol:$,trail:#
+      set listchars=tab:>-,eol:$,trail:#,nbsp:#,extends:>,precedes:<
     endif
 "--
 
