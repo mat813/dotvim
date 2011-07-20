@@ -100,12 +100,13 @@ set smartcase			" But case-sensitive if expression contains a capital letter.
 set scrolloff=3			" Show 3 lines of context around the cursor.
 
 set laststatus=2		" Show the status line all the time
+
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ 
-set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+set statusline=%#StatusLineNC#[%n]\ %#StatusLine#%<%.99f%*\ %Y%M%R%H
+set statusline+=%{fugitive#statusline()}
+set statusline+=%#StatusLine#%{SyntasticStatuslineFlag()}%*
 set statusline+=%{rvm#statusline()}
-set statusline+=%=%-16(\ %l,%c-%v\ %)%P
+set statusline+=%=%-16(\ [%B]\ %l,%c%V\ %)%P
 
 if &term == "screen"
   set ttymouse=xterm2		" when in a screen, use xterm2 for the mouse, in case I enable the mouse.
