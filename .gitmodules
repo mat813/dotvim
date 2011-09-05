@@ -85,9 +85,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule "bundle/rvm.vim"]
-	path = bundle/rvm.vim
-	url = https://github.com/csexton/rvm.vim
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim
@@ -106,3 +103,6 @@
 [submodule "bundle/vim-git"]
 	path = bundle/vim-git
 	url = https://github.com/tpope/vim-git
+[submodule "bundle/vim-rvm"]
+	path = bundle/vim-rvm
+	url = https://github.com/tpope/vim-rvm
