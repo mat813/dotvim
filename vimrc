@@ -264,3 +264,5 @@ runtime macros/matchit.vim
 let g:snippets_dir = "$HOME/.vim/bundle/snipmate.vim/snippets/,$HOME/.vim/snippets/"
 
 source $HOME/.vim/colors.vim
+
+call togglebg#map("<Leader>b")
