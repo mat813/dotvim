@@ -265,4 +265,7 @@ let g:snippets_dir = "$HOME/.vim/bundle/snipmate.vim/snippets/,$HOME/.vim/snippe
 
 source $HOME/.vim/colors.vim
 
+" togglebg#map map en normal, visual et input, faut virer input.
 call togglebg#map("<Leader>b")
+iunmap <Leader>b
+
