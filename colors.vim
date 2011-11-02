@@ -8,7 +8,10 @@
 " ------------------------------------------------------------------
 " Solarized Colorscheme Config
 " ------------------------------------------------------------------
-let g:solarized_termcolors=256    "default value is 16
+let g:solarized_termcolors=16
+if &term == "xterm-256color" || has("gui_running")
+  let g:solarized_termcolors=256    "default value is 16
+endif
 let g:solarized_contrast="high"    "default value is normal
 let g:solarized_visibility="high"    "default value is low
 let g:solarized_diffmode="high"    "default value is normal
