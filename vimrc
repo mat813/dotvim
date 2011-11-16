@@ -269,3 +269,4 @@ call togglebg#map("<Leader>b")
 iunmap <Leader>b
 
 map <Leader>n :set nu!<CR>
+map <Leader>w :set wrap!<CR>
