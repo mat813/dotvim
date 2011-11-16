@@ -221,7 +221,6 @@ runtime macros/matchit.vim
 
 "-- Rails
     if has("autocmd")
-      autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
       autocmd User Rails Rnavcommand cell app/cells -glob=**/* -suffix=
       autocmd User Rails map <Leader>m  :Rmodel 
       autocmd User Rails map <Leader>tm :RTmodel 
@@ -244,9 +243,10 @@ runtime macros/matchit.vim
       autocmd User Rails map <Leader>s  :Rstylesheet 
       autocmd User Rails map <Leader>ts :RTstylesheet 
       autocmd User Rails map <Leader>ss :RSstylesheet 
-      autocmd User Rails map <Leader>g  :Rconfig 
-      autocmd User Rails map <Leader>sg :RSconfig 
-      autocmd User Rails map <Leader>tg :RTconfig 
+      " autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
+      " autocmd User Rails map <Leader>g  :Rconfig 
+      " autocmd User Rails map <Leader>sg :RSconfig 
+      " autocmd User Rails map <Leader>tg :RTconfig 
     endif
 "--
 
