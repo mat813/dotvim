@@ -27,7 +27,7 @@
 	url = https://github.com/tpope/vim-endwise
 [submodule "bundle/vim-rspec"]
 	path = bundle/vim-rspec
-	url = https://github.com/taq/vim-rspec
+	url = https://github.com/skwp/vim-rspec
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown
@@ -108,4 +108,4 @@
 	url = https://github.com/tpope/vim-rvm
 [submodule "bundle/JavaScript-Indent"]
 	path = bundle/JavaScript-Indent
-	url = https://github.com/vim-scripts/JavaScript-Indent.git
+	url = https://github.com/vim-scripts/JavaScript-Indent
