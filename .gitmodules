@@ -109,3 +109,9 @@
 [submodule "bundle/JavaScript-Indent"]
 	path = bundle/JavaScript-Indent
 	url = https://github.com/vim-scripts/JavaScript-Indent
+[submodule "bundle/vim-jquery-doc"]
+	path = bundle/vim-jquery-doc
+	url = https://github.com/lucapette/vim-jquery-doc
+[submodule "bundle/vim-ruby-doc"]
+	path = bundle/vim-ruby-doc
+	url = https://github.com/lucapette/vim-ruby-doc
