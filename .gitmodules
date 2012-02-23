@@ -115,3 +115,6 @@
 [submodule "bundle/vim-ruby-doc"]
 	path = bundle/vim-ruby-doc
 	url = https://github.com/lucapette/vim-ruby-doc
+[submodule "bundle/ikiwiki-nav"]
+	path = bundle/ikiwiki-nav
+	url = https://github.com/vim-scripts/ikiwiki-nav
