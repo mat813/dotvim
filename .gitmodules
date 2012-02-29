@@ -118,3 +118,6 @@
 [submodule "bundle/ikiwiki-nav"]
 	path = bundle/ikiwiki-nav
 	url = https://github.com/vim-scripts/ikiwiki-nav
+[submodule "bundle/vim-less"]
+	path = bundle/vim-less
+	url = https://github.com/groenewege/vim-less
