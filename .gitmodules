@@ -118,3 +118,15 @@
 [submodule "bundle/AutoComplPop"]
 	path = bundle/AutoComplPop
 	url = https://github.com/vim-scripts/AutoComplPop
+[submodule "bundle/vim-rake"]
+	path = bundle/vim-rake
+	url = https://github.com/tpope/vim-rake
+[submodule "bundle/vim-bundler"]
+	path = bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler
+[submodule "bundle/vim-rhubarb"]
+	path = bundle/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
+[submodule "bundle/vim-speeddating"]
+	path = bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating
