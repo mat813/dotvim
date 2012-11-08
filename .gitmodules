@@ -154,3 +154,9 @@
 [submodule "bundle/scss-syntax.vim"]
 	path = bundle/scss-syntax.vim
 	url = https://github.com/cakebaker/scss-syntax.vim
+[submodule "bundle/vim-node.js"]
+	path = bundle/vim-node.js
+	url = https://github.com/mmalecki/vim-node.js
+[submodule "bundle/puppet-vim"]
+	path = bundle/puppet-vim
+	url = https://github.com/ajf/puppet-vim
