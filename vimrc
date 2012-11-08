@@ -105,7 +105,9 @@ set laststatus=2		" Show the status line all the time
 set statusline=%#StatusLineNC#[%n]\ %#StatusLine#%<%.99f%*\ %Y%M%R%H
 set statusline+=%{fugitive#statusline()}
 set statusline+=%#StatusLine#%{SyntasticStatuslineFlag()}%*
-set statusline+=%{rvm#statusline()}
+if exists('$rvm_path')
+  set statusline+=%{rvm#statusline()}
+end
 set statusline+=%=%-16(\ [%B]\ %l,%c%V\ %)%P
 
 if &term == "screen"
