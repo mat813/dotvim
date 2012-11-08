@@ -267,6 +267,10 @@ let g:snippets_dir = "$HOME/.vim/bundle/snipmate.vim/snippets/,$HOME/.vim/snippe
 
 source $HOME/.vim/colors.vim
 
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
 " togglebg#map map en normal, visual et input, faut virer input.
 call togglebg#map("<Leader>b")
 iunmap <Leader>b
