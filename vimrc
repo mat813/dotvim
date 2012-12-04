@@ -18,7 +18,7 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+nnoremap Q gq
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -119,9 +119,9 @@ match Todo / /			" a non breaking space is a bad thing.
 let mapleader = " "		" have a <Space> for <Leader>.
 
 " No Help, please.
-nmap <F1> <Esc>
+nnoremap <F1> <Esc>
 
-map + :noh<CR>
+nnoremap + :noh<CR>
 
 let g:GetLatestVimScripts_allowautoinstall=1
 let g:proj_flags="imstg"
@@ -150,7 +150,7 @@ runtime macros/matchit.vim
 
 "-- from http://vimcasts.org/episodes/show-invisibles/
     " Shortcut to rapidly toggle `set list`
-    nmap <leader>l :set list!<CR>
+    nnoremap <leader>l :set list!<CR>
     " Use the same symbols as TextMate for tabstops and EOLs
     if &encoding ==? "utf-8"
       set listchars=tab:▸–,eol:¶,trail:❖,nbsp:¬,extends:»,precedes:«
@@ -192,8 +192,8 @@ runtime macros/matchit.vim
       let @/=_s
       call cursor(l, c)
     endfunction
-    nmap <Leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
-    nmap <Leader>= :call Preserve("normal gg=G")<CR>
+    nnoremap <Leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
+    nnoremap <Leader>= :call Preserve("normal gg=G")<CR>
 "--
 
 "-- from http://vimcasts.org/episodes/working-with-tabs/
@@ -275,5 +275,5 @@ let g:html_indent_style1 = "inc"
 call togglebg#map("<Leader>b")
 iunmap <Leader>b
 
-map <Leader>n :set nu!<CR>
-map <Leader>w :set wrap!<CR>
+noremap <Leader>n :set nu!<CR>
+noremap <Leader>w :set wrap!<CR>
