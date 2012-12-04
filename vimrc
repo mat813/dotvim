@@ -41,21 +41,21 @@ if has("autocmd")
   filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
+  augroup MyvimrcEx
     au!
 
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
 
   augroup END
 
@@ -70,7 +70,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 " end from vimrc_example.vim
 
@@ -138,10 +138,13 @@ let php_sync_method=0
 let ruby_minlines=5000
 
 if has("autocmd") && exists("+omnifunc")
-  autocmd Filetype *
-	\	if &omnifunc == "" |
-	\		setlocal omnifunc=syntaxcomplete#Complete |
-	\	endif
+  augroup MyOmnifunc
+    au!
+    autocmd Filetype *
+          \	if &omnifunc == "" |
+          \		setlocal omnifunc=syntaxcomplete#Complete |
+          \	endif
+  augroup END
 endif
 
 nnoremap <F5> :GundoToggle<CR>
@@ -149,118 +152,130 @@ nnoremap <F5> :GundoToggle<CR>
 runtime macros/matchit.vim
 
 "-- from http://vimcasts.org/episodes/show-invisibles/
-    " Shortcut to rapidly toggle `set list`
-    nnoremap <leader>l :set list!<CR>
-    " Use the same symbols as TextMate for tabstops and EOLs
-    if &encoding ==? "utf-8"
-      set listchars=tab:▸–,eol:¶,trail:❖,nbsp:¬,extends:»,precedes:«
-    else
-      set listchars=tab:>-,eol:$,trail:#,nbsp:#,extends:>,precedes:<
-    endif
+" Shortcut to rapidly toggle `set list`
+nnoremap <leader>l :set list!<CR>
+" Use the same symbols as TextMate for tabstops and EOLs
+if &encoding ==? "utf-8"
+  set listchars=tab:▸–,eol:¶,trail:❖,nbsp:¬,extends:»,precedes:«
+else
+  set listchars=tab:>-,eol:$,trail:#,nbsp:#,extends:>,precedes:<
+endif
 "--
 
 "-- from http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
-    " Only do this part when compiled with support for autocommands
-    if has("autocmd")
-      " Enable file type detection
-      filetype on
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  " Enable file type detection
+  filetype on
 
-      " Syntax of these languages is fussy over tabs Vs spaces
-      autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-      autocmd FileType yaml setlocal ts=8 sts=2 sw=2 expandtab
-      autocmd FileType coffee setlocal expandtab
+  augroup MyWhiteSpaceAndFiletypes
+    au!
 
-      " Customisations based on house-style (arbitrary)
-      autocmd FileType html setlocal ts=8 sts=2 sw=2 expandtab
-      autocmd FileType css setlocal ts=8 sts=2 sw=2 expandtab
-      autocmd FileType javascript setlocal ts=8 sts=4 sw=4 noexpandtab
+    " Syntax of these languages is fussy over tabs Vs spaces
+    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType yaml setlocal ts=8 sts=2 sw=2 expandtab
+    autocmd FileType coffee setlocal expandtab
 
-      " Treat .rss files as XML
-      autocmd BufNewFile,BufRead *.rss setfiletype xml
-    endif
+    " Customisations based on house-style (arbitrary)
+    autocmd FileType html setlocal ts=8 sts=2 sw=2 expandtab
+    autocmd FileType css setlocal ts=8 sts=2 sw=2 expandtab
+    autocmd FileType javascript setlocal ts=8 sts=4 sw=4 noexpandtab
+
+    " Treat .rss files as XML
+    autocmd BufNewFile,BufRead *.rss setfiletype xml
+  augroup END
+endif
 " --
 
 "-- from http://vimcasts.org/episodes/tidying-whitespace/
-    function! Preserve(command)
-      " Preparation: save last search, and cursor position.
-      let _s=@/
-      let l = line(".")
-      let c = col(".")
-      " Do the business:
-      execute a:command
-      " Clean up: restore previous search history, and cursor position
-      let @/=_s
-      call cursor(l, c)
-    endfunction
-    nnoremap <Leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
-    nnoremap <Leader>= :call Preserve("normal gg=G")<CR>
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+nnoremap <Leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
+nnoremap <Leader>= :call Preserve("normal gg=G")<CR>
 "--
 
 "-- from http://vimcasts.org/episodes/working-with-tabs/
-    " For mac users (using the 'apple' key)
-    map <D-S-]> gt
-    map <D-S-[> gT
-    map <D-A-Right> gt
-    map <D-A-Left> gT
-    map <D-1> 1gt
-    map <D-2> 2gt
-    map <D-3> 3gt
-    map <D-4> 4gt
-    map <D-5> 5gt
-    map <D-6> 6gt
-    map <D-7> 7gt
-    map <D-8> 8gt
-    map <D-9> 9gt
-    map <D-0> :tablast<CR>
+" For mac users (using the 'apple' key)
+map <D-S-]> gt
+map <D-S-[> gT
+map <D-A-Right> gt
+map <D-A-Left> gT
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> :tablast<CR>
 "--
 
 "-- from http://vimcasts.org/episodes/soft-wrapping-text/
-    if &encoding ==? "utf-8"
-      set showbreak=…
-    else
-      set showbreak=...
-    endif
+if &encoding ==? "utf-8"
+  set showbreak=…
+else
+  set showbreak=...
+endif
 "--
 
 "-- Rails
-    if has("autocmd")
-      autocmd User Rails Rnavcommand cell app/cells -glob=**/* -suffix=
-      autocmd User Rails map <Leader>m  :Rmodel 
-      autocmd User Rails map <Leader>tm :RTmodel 
-      autocmd User Rails map <Leader>sm :RSmodel 
-      autocmd User Rails map <Leader>c  :Rcontroller 
-      autocmd User Rails map <Leader>tc :RTcontroller 
-      autocmd User Rails map <Leader>sc :RScontroller 
-      autocmd User Rails map <Leader>C  :Rcell 
-      autocmd User Rails map <Leader>tC :RTcell 
-      autocmd User Rails map <Leader>sC :RScell 
-      autocmd User Rails map <Leader>v  :Rview 
-      autocmd User Rails map <Leader>tv :RTview 
-      autocmd User Rails map <Leader>sv :RSview 
-      autocmd User Rails map <Leader>h  :Rhelper 
-      autocmd User Rails map <Leader>th :RThelper 
-      autocmd User Rails map <Leader>sh :RShelper 
-      autocmd User Rails map <Leader>j  :Rjavascript 
-      autocmd User Rails map <Leader>tj :RTjavascript 
-      autocmd User Rails map <Leader>sj :RSjavascript 
-      autocmd User Rails map <Leader>s  :Rstylesheet 
-      autocmd User Rails map <Leader>ts :RTstylesheet 
-      autocmd User Rails map <Leader>ss :RSstylesheet 
-      " autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
-      " autocmd User Rails map <Leader>g  :Rconfig 
-      " autocmd User Rails map <Leader>sg :RSconfig 
-      " autocmd User Rails map <Leader>tg :RTconfig 
-    endif
+if has("autocmd")
+  augroup MyRails
+    au!
+
+    autocmd User Rails Rnavcommand cell app/cells -glob=**/* -suffix=
+    autocmd User Rails map <Leader>m  :Rmodel 
+    autocmd User Rails map <Leader>tm :RTmodel 
+    autocmd User Rails map <Leader>sm :RSmodel 
+    autocmd User Rails map <Leader>c  :Rcontroller 
+    autocmd User Rails map <Leader>tc :RTcontroller 
+    autocmd User Rails map <Leader>sc :RScontroller 
+    autocmd User Rails map <Leader>C  :Rcell 
+    autocmd User Rails map <Leader>tC :RTcell 
+    autocmd User Rails map <Leader>sC :RScell 
+    autocmd User Rails map <Leader>v  :Rview 
+    autocmd User Rails map <Leader>tv :RTview 
+    autocmd User Rails map <Leader>sv :RSview 
+    autocmd User Rails map <Leader>h  :Rhelper 
+    autocmd User Rails map <Leader>th :RThelper 
+    autocmd User Rails map <Leader>sh :RShelper 
+    autocmd User Rails map <Leader>j  :Rjavascript 
+    autocmd User Rails map <Leader>tj :RTjavascript 
+    autocmd User Rails map <Leader>sj :RSjavascript 
+    autocmd User Rails map <Leader>s  :Rstylesheet 
+    autocmd User Rails map <Leader>ts :RTstylesheet 
+    autocmd User Rails map <Leader>ss :RSstylesheet 
+    " autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
+    " autocmd User Rails map <Leader>g  :Rconfig 
+    " autocmd User Rails map <Leader>sg :RSconfig 
+    " autocmd User Rails map <Leader>tg :RTconfig 
+  augroup END
+endif
 "--
 
 "-- from http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
-    if has("autocmd")
-      autocmd User fugitive
-	\ if fugitive#buffer().type() =~# '^\%(tree\|blob\)' |
-	\   nnoremap <buffer> .. :edit %:h<CR> |
-	\ endif
-      autocmd BufReadPost fugitive://* set bufhidden=delete
-    endif
+if has("autocmd")
+  augroup MyFugitive
+    au!
+
+    autocmd User fugitive
+          \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)' |
+          \   nnoremap <buffer> .. :edit %:h<CR> |
+          \ endif
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+  augroup END
+endif
 "--
 
 let g:snippets_dir = "$HOME/.vim/bundle/snipmate.vim/snippets/,$HOME/.vim/snippets/"
