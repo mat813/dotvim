@@ -163,3 +163,6 @@
 [submodule "bundle/Bird-Syntax"]
 	path = bundle/Bird-Syntax
 	url = git@github.com:Absolight/Bird-Syntax.git
+[submodule "bundle/vim-scriptease"]
+	path = bundle/vim-scriptease
+	url = https://github.com/tpope/vim-scriptease
