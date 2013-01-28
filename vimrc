@@ -297,3 +297,5 @@ iunmap <Leader>b
 
 noremap <Leader>n :set nu!<CR>
 noremap <Leader>w :set wrap!<CR>
+
+let g:NERDTreeDirArrows = &encoding ==? "utf-8"
