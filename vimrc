@@ -1,5 +1,5 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+execute pathogen#infect()
+execute pathogen#helptags()
 
 " from vimrc_example.vim
 if v:progname =~? "evim"
