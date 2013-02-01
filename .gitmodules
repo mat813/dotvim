@@ -169,3 +169,6 @@
 [submodule "bundle/vimple"]
 	path = bundle/vimple
 	url = https://github.com/dahu/vimple
+[submodule "bundle/mediawiki.vim"]
+	path = bundle/mediawiki.vim
+	url = https://github.com/chikamichi/mediawiki.vim.git
