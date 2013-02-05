@@ -299,3 +299,7 @@ noremap <Leader>n :set nu!<CR>
 noremap <Leader>w :set wrap!<CR>
 
 let g:NERDTreeDirArrows = &encoding ==? "utf-8"
+
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
