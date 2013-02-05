@@ -298,6 +298,12 @@ iunmap <Leader>b
 noremap <Leader>n :set nu!<CR>
 noremap <Leader>w :set wrap!<CR>
 
+" Teach vim how to open epub files
+augroup EPUB
+  au!
+  au BufReadCmd   *.epub		call zip#Browse(expand("<amatch>"))
+augroup END
+
 let g:NERDTreeDirArrows = &encoding ==? "utf-8"
 
 if executable('ag')
