@@ -309,3 +309,8 @@ let g:NERDTreeDirArrows = &encoding ==? "utf-8"
 if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
+
+" hardmode.
+nnoremap <leader>h <Esc>:call EasyMode()<CR>
+nnoremap <leader>H <Esc>:call HardMode()<CR>
+"

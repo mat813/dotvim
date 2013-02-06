@@ -172,3 +172,6 @@
 [submodule "bundle/mediawiki.vim"]
 	path = bundle/mediawiki.vim
 	url = https://github.com/chikamichi/mediawiki.vim.git
+[submodule "bundle/hardmode"]
+	path = bundle/hardmode
+	url = https://github.com/wikitopian/hardmode.git
