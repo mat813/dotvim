@@ -175,3 +175,6 @@
 [submodule "bundle/hardmode"]
 	path = bundle/hardmode
 	url = https://github.com/wikitopian/hardmode.git
+[submodule "bundle/vim-bind"]
+	path = bundle/vim-bind
+	url = https://github.com/Absolight/vim-bind.git
