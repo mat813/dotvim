@@ -178,3 +178,6 @@
 [submodule "bundle/vim-bind"]
 	path = bundle/vim-bind
 	url = https://github.com/Absolight/vim-bind.git
+[submodule "bundle/nginx-vim-syntax"]
+	path = bundle/nginx-vim-syntax
+	url = https://github.com/evanmiller/nginx-vim-syntax.git
