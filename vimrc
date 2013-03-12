@@ -1,5 +1,4 @@
 execute pathogen#infect()
-execute pathogen#helptags()
 
 " from vimrc_example.vim
 if v:progname =~? "evim"
