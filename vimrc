@@ -240,6 +240,8 @@ if has("autocmd")
     au!
 
     autocmd User Rails Rnavcommand cell app/cells -glob=**/* -suffix=
+    autocmd User Rails Rnavcommand feature features -glob=**/* -suffix=.feature
+    autocmd User Rails Rnavcommand step features -glob=**/* -suffix=_steps.rb
     autocmd User Rails map <Leader>m  :Rmodel 
     autocmd User Rails map <Leader>tm :RTmodel 
     autocmd User Rails map <Leader>sm :RSmodel 
