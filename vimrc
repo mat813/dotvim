@@ -304,6 +304,8 @@ iunmap <Leader>b
 noremap <Leader>n :set nu!<CR>
 noremap <Leader>w :set wrap!<CR>
 
+map <F10> <Leader>hlt
+
 " Teach vim how to open epub files
 augroup EPUB
   au!
