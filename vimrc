@@ -89,6 +89,10 @@ set foldmethod=marker		" I like my folds with a marker
 set sts=2 sw=2			" two spaces tabs
 set modeline			" make sure modeline is enabled
 set autoread			" auto reread modified files
+augroup noautoread
+  au!
+  au BufNewFile,BufRead /Volumes/* set noautoread
+augroup END
 
 set nolazyredraw		" turn of lazy redraw
 
