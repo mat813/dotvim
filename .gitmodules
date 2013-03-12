@@ -181,3 +181,6 @@
 [submodule "bundle/nginx-vim-syntax"]
 	path = bundle/nginx-vim-syntax
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule "bundle/vim-sensible"]
+	path = bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
