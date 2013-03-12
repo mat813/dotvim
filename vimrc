@@ -1,4 +1,5 @@
 execute pathogen#infect()
+execute pathogen#helptags()
 
 " from vimrc_example.vim
 if v:progname =~? "evim"
@@ -8,13 +9,6 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
 
 " Don't use Ex mode, use Q for formatting
 nnoremap Q gq
@@ -26,20 +20,12 @@ inoremap <C-U> <C-G>u<C-U>
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-  syntax on
+  syntax enable
   set hlsearch
-  set incsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup MyvimrcEx
     au!
@@ -58,11 +44,6 @@ if has("autocmd")
           \ endif
 
   augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
@@ -75,12 +56,12 @@ endif
 " end from vimrc_example.vim
 
 set nobackup			" don't keep backups.
-set nowritebackup		" really don't.
-set directory=$HOME/.vim/tmp//,. " keep backups elsewhere.
-set undodir=$HOME/.vim/undo//,.
+let &directory = expand($HOME) . '/.vim/tmp/,'   . &directory " keep swap elsewhere.
+let &backupdir = expand($HOME) . '/.vim/backup/,' . &backupdir " keep backups elsewhere.
+let &undodir =   expand($HOME) . '/.vim/undo/,'   . &undodir   " keep undo elsewhere.
 set undofile
 
-set viminfo=%50,'1000,/500,:500,@500,f1,s100	" Add a bit more than the default.
+set viminfo='1000,f1,s100,n~/.vim/viminfo	" Add a bit more than the default.
 set background=dark		" dark background
 set cindent			" get indentation from C by default
 set foldenable			" do foldings
@@ -93,7 +74,7 @@ augroup noautoread
   au BufNewFile,BufRead /Volumes/* set noautoread
 augroup END
 
-set nolazyredraw		" turn of lazy redraw
+set nolazyredraw		" turn off lazy redraw
 
 set wildmenu			" Enhanced command line completion.
 set wildmode=list:full		" Complete files like a shell.
@@ -102,8 +83,6 @@ set ignorecase			" Case-insensitive searching.
 set smartcase			" But case-sensitive if expression contains a capital letter.
 
 set scrolloff=3			" Show 3 lines of context around the cursor.
-
-set laststatus=2		" Show the status line all the time
 
 " Useful status information at bottom of screen
 set statusline=%#StatusLineNC#[%n]\ %#StatusLine#%<%.99f%*\ %Y%M%R%H
@@ -125,7 +104,7 @@ let mapleader = " "		" have a <Space> for <Leader>.
 " No Help, please.
 nnoremap <F1> <Esc>
 
-nnoremap + :noh<CR>
+nnoremap <silent> + :noh<CR>
 
 let g:GetLatestVimScripts_allowautoinstall=1
 let g:proj_flags="imstg"
@@ -160,7 +139,8 @@ runtime macros/matchit.vim
 nnoremap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 if &encoding ==? "utf-8"
-  set listchars=tab:▸–,eol:¶,trail:❖,nbsp:¬,extends:»,precedes:«
+  " \u25b8  \u00b6  \u2423 \u00ac  \u21c9   \u21c7
+  set listchars=tab:▸–,eol:¶,trail:␣,nbsp:¬,extends:⇉,precedes:⇇
 else
   set listchars=tab:>-,eol:$,trail:#,nbsp:#,extends:>,precedes:<
 endif

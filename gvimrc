@@ -1,3 +1,4 @@
+" aussi mis par sensible, mais on sait jamais.
 set encoding=utf-8
 
 source $HOME/.vimrc
