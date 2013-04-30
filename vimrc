@@ -139,7 +139,7 @@ if has("autocmd") && exists("+omnifunc")
   augroup END
 endif
 
-nnoremap <silent> <F5> :GundoToggle<CR>
+nnoremap <silent> <leader>u :GundoToggle<CR>
 
 runtime macros/matchit.vim
 
