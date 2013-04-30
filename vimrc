@@ -139,13 +139,13 @@ if has("autocmd") && exists("+omnifunc")
   augroup END
 endif
 
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <silent> <F5> :GundoToggle<CR>
 
 runtime macros/matchit.vim
 
 "-- from http://vimcasts.org/episodes/show-invisibles/
 " Shortcut to rapidly toggle `set list`
-nnoremap <leader>l :set list!<CR>
+nnoremap <silent> <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 if &encoding ==? "utf-8"
   " \u25b8  \u00b6  \u2423 \u00ac  \u21c9   \u21c7
@@ -192,8 +192,8 @@ function! Preserve(command)
   let @/=_s
   call cursor(l, c)
 endfunction
-nnoremap <Leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
-nnoremap <Leader>= :call Preserve("normal gg=G")<CR>
+nnoremap <silent> <Leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
+nnoremap <silent> <Leader>= :call Preserve("normal gg=G")<CR>
 "--
 
 "-- from http://vimcasts.org/episodes/working-with-tabs/
@@ -289,8 +289,8 @@ let g:ctrlp_cache_dir = $HOME.'/.vim/tmp/ctrlp'
 call togglebg#map("<Leader>b")
 iunmap <Leader>b
 
-noremap <Leader>n :set nu!<CR>
-noremap <Leader>w :set wrap!<CR>
+noremap <silent> <Leader>n :set nu!<CR>
+noremap <silent> <Leader>w :set wrap!<CR>
 
 map <F10> <Leader>hlt
 
@@ -307,8 +307,8 @@ if executable('ag')
 endif
 
 " hardmode.
-nnoremap <leader>h <Esc>:call EasyMode()<CR>
-nnoremap <leader>H <Esc>:call HardMode()<CR>
+nnoremap <silent> <leader>h <Esc>:call EasyMode()<CR>
+nnoremap <silent> <leader>H <Esc>:call HardMode()<CR>
 "
 
 " Abbrev
