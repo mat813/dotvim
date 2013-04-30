@@ -56,9 +56,18 @@ endif
 " end from vimrc_example.vim
 
 set nobackup			" don't keep backups.
-let &directory = expand($HOME) . '/.vim/tmp/,'   . &directory " keep swap elsewhere.
+let &directory = expand($HOME) . '/.vim/tmp/,'    . &directory " keep swap elsewhere.
 let &backupdir = expand($HOME) . '/.vim/backup/,' . &backupdir " keep backups elsewhere.
 let &undodir =   expand($HOME) . '/.vim/undo/,'   . &undodir   " keep undo elsewhere.
+if !isdirectory(expand($HOME) . '/.vim/tmp/')
+  call mkdir(expand($HOME) . '/.vim/tmp/', "p")
+endif
+if !isdirectory(expand($HOME) . '/.vim/backup/')
+  call mkdir(expand($HOME) . '/.vim/backup/', "p")
+endif
+if !isdirectory(expand($HOME) . '/.vim/undo/')
+  call mkdir(expand($HOME) . '/.vim/undo/', "p")
+endif
 set undofile
 
 set viminfo='1000,f1,s100,n~/.vim/viminfo	" Add a bit more than the default.
