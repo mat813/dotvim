@@ -1,3 +1,4 @@
+" vim: et fdm=marker
 execute pathogen#infect()
 execute pathogen#helptags()
 
