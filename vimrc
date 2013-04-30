@@ -295,7 +295,7 @@ noremap <silent> <Leader>w :set wrap!<CR>
 map <F10> <Leader>hlt
 
 " Teach vim how to open epub files
-augroup EPUB
+augroup MyEPUB
   au!
   au BufReadCmd   *.epub		call zip#Browse(expand("<amatch>"))
 augroup END
@@ -312,5 +312,8 @@ nnoremap <silent> <leader>H <Esc>:call HardMode()<CR>
 "
 
 " Abbrev
-au FileType gitcommit inoreabbrev -> →
+augroup MyAbbrevs
+  au!
+  au FileType gitcommit inoreabbrev -> →
+augroup END
 "
