@@ -125,6 +125,7 @@ let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_balloons = 1
 let g:gundo_right = 1
+let g:session_autosave = 'no'
 let maplocalloader=','
 let php_sql_query=1
 let php_sync_method=0
