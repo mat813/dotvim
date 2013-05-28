@@ -55,9 +55,6 @@
 [submodule "bundle/jslint.vim"]
 	path = bundle/jslint.vim
 	url = https://github.com/hallettj/jslint.vim
-[submodule "bundle/vim-conque"]
-	path = bundle/vim-conque
-	url = https://github.com/rson/vim-conque
 [submodule "bundle/project.tar.gz"]
 	path = bundle/project.tar.gz
 	url = https://github.com/vim-scripts/project.tar.gz
