@@ -94,15 +94,6 @@ set smartcase			" But case-sensitive if expression contains a capital letter.
 
 set scrolloff=3			" Show 3 lines of context around the cursor.
 
-" Useful status information at bottom of screen
-set statusline=%#StatusLineNC#[%n]\ %#StatusLine#%<%.99f%*\ %Y%M%R%H
-set statusline+=%{fugitive#statusline()}
-set statusline+=%#StatusLine#%{SyntasticStatuslineFlag()}%*
-if exists('$rvm_path')
-  set statusline+=%{rvm#statusline()}
-end
-set statusline+=%=%-16(\ [%B]\ %l,%c%V\ %)%P
-
 if &term == "screen"
   set ttymouse=xterm2		" when in a screen, use xterm2 for the mouse, in case I enable the mouse.
 endif
@@ -365,3 +356,25 @@ if has("autocmd")
         \ endif
 
 endif
+
+" Airline {{{2
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+if &encoding ==? "utf-8"
+  " unicode symbols
+  let g:airline_left_sep = '»'
+  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '«'
+  let g:airline_right_sep = '◀'
+  let g:airline_symbols.linenr = '¶'
+  let g:airline_symbols.branch = '⎇'
+  let g:airline_symbols.paste = 'Þ'
+  let g:airline_symbols.whitespace = 'Ξ'
+endif
+
+if exists('$rvm_path')
+  let g:airline_section_y = airline#section#create_right(['ffenc','%{rvm#statusline_ft_ruby()}'])
+end
