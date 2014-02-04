@@ -252,6 +252,15 @@ if has("autocmd")
 endif
 "--
 
+" FreeBSD docs
+if has("autocmd")
+  augroup MyXML
+    autocmd FileType xml setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l
+    autocmd FileType docbk setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l
+  augroup END
+endif
+
+
 "-- from http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 if has("autocmd")
   augroup MyFugitive
