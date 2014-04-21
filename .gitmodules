@@ -199,3 +199,6 @@
 [submodule "bundle/undotree"]
 	path = bundle/undotree
 	url = git@github.com:mbbill/undotree.git
+[submodule "bundle/vim-choosewin"]
+	path = bundle/vim-choosewin
+	url = git@github.com:t9md/vim-choosewin.git
