@@ -296,36 +296,40 @@ noremap <silent> <Leader>w :set wrap!<CR>
 
 map <F10> <Leader>hlt
 
-" Teach vim how to open epub files
+let g:NERDTreeDirArrows = &encoding ==? "utf-8"
+
+" Teach vim how to open epub files {{{2
 augroup MyEPUB
   au!
   au BufReadCmd   *.epub		call zip#Browse(expand("<amatch>"))
 augroup END
 
-let g:NERDTreeDirArrows = &encoding ==? "utf-8"
-
-if executable('ag')
+if executable('ag') " {{{2
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
-" hardmode.
+" hardmode. {{{2
 nnoremap <silent> <leader>h <Esc>:call EasyMode()<CR>
 nnoremap <silent> <leader>H <Esc>:call HardMode()<CR>
 "
 
-" Abbrev
+" Abbrev {{{2
 augroup MyAbbrevs
   au!
   au FileType gitcommit inoreabbrev -> →
 augroup END
 "
 
-" Shortcuts for opening file in same directory as current file
+" Shortcuts for opening file in same directory as current file {{{2
 cnoremap <expr> %%  getcmdtype() == ':' ? escape(expand('%:h'), ' \').'/' : '%%'
 nmap <leader>ew :e %%
 nmap <leader>es :sp %%
 nmap <leader>ev :vsp %%
 nmap <leader>et :tabe %%
+
+" ChooseWin plugin {{{2
+nmap  -  <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
 
 " :CloseHiddenBuffers {{{2
 " Wipe all buffers which are not active (i.e. not visible in a window/tab)
