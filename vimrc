@@ -302,6 +302,14 @@ map <F10> <Leader>hlt
 
 let g:NERDTreeDirArrows = &encoding ==? "utf-8"
 
+if has("autocmd")
+  augroup MySVN
+    au!
+    " need to escape <CR> and <ESC>
+    autocmd BufReadPost svn-commit* exe "normal gg/Sponsored by:\<CR>AAbsolight\<ESC>gg"
+  augroup END
+endif
+
 " Teach vim how to open epub files {{{2
 augroup MyEPUB
   au!
