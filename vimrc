@@ -382,24 +382,127 @@ if has("autocmd")
 
 endif
 
-" Airline {{{2
+" Lightline {{{2
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
+let g:lightline = {
+  \ 'colorscheme': 'solarized',
+  \ 'active': { 'left': [ [ 'mode', 'paste' ],
+  \                       [ 'fugitive', 'filename' ] ],
+  \             'right': [ [ 'syntastic', 'lineinfo' ],
+  \                        [ 'filetype', 'fileencoding' ],
+  \                        [ 'whitespace' ] ],
+  \ },
+  \ 'inactive': { 'left': [ ['mode', 'paste'],
+  \                         [ 'fugitive', 'filename' ] ],
+  \               'right': []
+  \ },
+  \ 'component_function': {
+  \                         'readonly'     : 'MyReadonly',
+  \                         'modified'     : 'MyModified',
+  \                         'fugitive'     : 'MyFugitive',
+  \                         'filename'     : 'MyFilename',
+  \                         'fileencoding' : 'MyFileencoding',
+  \                         'filetype'     : 'MyFiletype',
+  \                         'mode'         : 'MyMode',
+  \                         'lineinfo'     : 'MyLineinfo',
+  \                         'whitespace'   : 'MyWhitespace',
+  \ },
+  \ 'component_expand': {
+  \                       'syntastic': 'SyntasticStatuslineFlag',
+  \ },
+  \ 'component_type': {
+  \                     'syntastic': 'error',
+  \ },
+  \ 'separator': { 'left': '▶', 'right': '◀' },
+  \ 'subseparator': { 'left': '»', 'right': '«' },
+  \ }
 
-if &encoding ==? "utf-8"
-  " unicode symbols
-  let g:airline_left_sep = '»'
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '«'
-  let g:airline_right_sep = '◀'
-  let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.branch = '⎇'
-  let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.whitespace = 'Ξ'
-endif
+function! MyMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+    \ fname == 'ControlP' ? 'CtrlP' :
+    \ fname == '__Gundo__' ? 'Gundo' :
+    \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+    \ fname =~ 'NERD_tree' ? 'NERD Tree' :
+    \ &ft == 'help' ? 'HELP' :
+    \ &ft == 'unite' ? 'Unite' :
+    \ &ft == 'vimfiler' ? 'VimFiler' :
+    \ &ft == 'vimshell' ? 'VimShell' : lightline#mode()
+"\ winwidth(0) > 55 ? lightline#mode() : ''
+endfunction
 
-if exists('$rvm_path')
-  let g:airline_section_y = airline#section#create_right(['ffenc','%{rvm#statusline_ft_ruby()}'])
-end
+function! MyFugitive()
+  if winwidth(0) > 6 && expand('%:t') !~? 'Tagbar\|Gundo\|NERD'
+    \ && &ft !~? 'vimfiler' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '⎇ '._ : ''
+  endif
+  return ''
+endfunction
+
+function! MyReadonly()
+  return &readonly ? '✗' : ''
+endfunction
+
+function! MyModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '✚' : &modifiable ? '' : '-'
+endfunction
+
+function! MyFilename()
+  let fname = expand('%:t')
+  return fname == 'ControlP' ? g:lightline.ctrlp_item :
+    \ fname == '__Tagbar__' ? g:lightline.fname :
+    \ fname =~ '__Gundo\|NERD_tree' ? '' :
+    \ &ft == 'help' ? '' :
+    \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+    \ &ft == 'unite' ? unite#get_status_string() :
+    \ &ft == 'vimshell' ? vimshell#get_status_string() :
+    \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+    \ ('' != fname ? fname : '[No Name]') .
+    \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyWhitespace()
+  let [lnum,cnum] = searchpos('\s\+$', 'nw')
+  let trailing = lnum != 0 && cnum != 0 ? '⎵ :'.lnum : ''
+  let tabs = search('^\t', 'nw') != 0
+  let spaces = search('^ ', 'nw') != 0
+  return (tabs && spaces ? '[mixed]' : '') . trailing
+endfunction
+
+function! MyFiletype()
+  let ftype = (strlen(&filetype) ? &filetype : 'undef')
+  return winwidth(0) >= strlen(MyMode()) + strlen(MyFugitive()) + strlen(MyFilename()) + 24 + 32 ? ftype : ''
+endfunction
+
+function! MyFileencoding()
+  let fileenc = (strlen(&fenc) ? &fenc : &enc) . ('unix' == &fileformat ? '' : '(' . &fileformat . ')')
+  return winwidth(0) >= strlen(MyMode()) + strlen(MyFugitive()) + strlen(MyFilename()) + 24 + 24 ? fileenc : ''
+endfunction
+
+function! MyLineinfo()
+  let l:cl = line(".")
+  let l:ll = line("$")
+  let l:cc = col(".")
+  let l:fm = printf("¶ %%0%dd/%%d → %%03d", strlen(l:ll))
+  let l:li = printf(l:fm, l:cl, l:ll, l:cc)
+  return expand('%:t') !~? 'Tagbar\|Gundo\|NERD'
+        \ && winwidth(0) >= strlen(MyMode()) + strlen(MyFugitive()) + strlen(MyFilename()) + 24 + 16 ? l:li : ''
+endfunction
+
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
+
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_regex = a:regex
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  return lightline#statusline(0)
+endfunction
+
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction

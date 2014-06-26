@@ -91,9 +91,6 @@
 [submodule "bundle/vim-git"]
 	path = bundle/vim-git
 	url = git@github.com:tpope/vim-git
-[submodule "bundle/vim-rvm"]
-	path = bundle/vim-rvm
-	url = git@github.com:tpope/vim-rvm.git
 [submodule "bundle/JavaScript-Indent"]
 	path = bundle/JavaScript-Indent
 	url = git@github.com:vim-scripts/JavaScript-Indent.git
@@ -187,9 +184,6 @@
 [submodule "bundle/vim-misc"]
 	path = bundle/vim-misc
 	url = git@github.com:xolox/vim-misc.git
-[submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
-	url = git@github.com:bling/vim-airline.git
 [submodule "bundle/vim-gitgutter"]
 	path = bundle/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
@@ -202,3 +196,6 @@
 [submodule "bundle/vim-choosewin"]
 	path = bundle/vim-choosewin
 	url = git@github.com:t9md/vim-choosewin.git
+[submodule "bundle/lightline.vim"]
+	path = bundle/lightline.vim
+	url = git@github.com:itchyny/lightline.vim.git
