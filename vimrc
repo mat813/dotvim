@@ -256,8 +256,8 @@ endif
 if has("autocmd")
   augroup MyXML
     au!
-    autocmd FileType xml setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l
-    autocmd FileType docbk setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l
+    autocmd FileType xml setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l noet
+    autocmd FileType docbk setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l noet
   augroup END
 endif
 
