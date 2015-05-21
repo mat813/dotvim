@@ -132,6 +132,9 @@ if has("autocmd") && exists("+omnifunc")
   augroup END
 endif
 
+let g:SuperTabNoCompleteBefore=['\<']
+let g:SuperTabNoCompleteAfter=['^', '\s', '\W']
+
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 runtime macros/matchit.vim
