@@ -307,10 +307,17 @@ map <F10> <Leader>hlt
 let g:NERDTreeDirArrows = &encoding ==? "utf-8"
 
 if has("autocmd")
+  " augroup MyGIT
+  "   au!
+  "   " need to escape <CR> and <ESC>
+  "   autocmd BufReadPost COMMIT_EDITMSG exe "r ~/.subversion-template"
+  "   autocmd FileType svn setlocal sts=8 sw=7 tw=70 cc+=1 fo=tcq2l noet
+  " augroup END
   augroup MySVN
     au!
     " need to escape <CR> and <ESC>
     autocmd BufReadPost svn-commit* exe "normal gg/Sponsored by:\<CR>AAbsolight\<ESC>gg"
+    autocmd FileType svn setlocal sts=8 sw=7 tw=70 cc+=1 fo=tcq2l noet
   augroup END
 endif
 
@@ -333,6 +340,7 @@ nnoremap <silent> <leader>H <Esc>:call HardMode()<CR>
 augroup MyAbbrevs
   au!
   au FileType gitcommit inoreabbrev -> →
+  au FileType gitcommit inoreabbrev kato tkato432 yahoo com
 augroup END
 "
 
