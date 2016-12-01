@@ -205,3 +205,6 @@
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/mojo.vim"]
+	path = bundle/mojo.vim
+	url = https://github.com/yko/mojo.vim.git
