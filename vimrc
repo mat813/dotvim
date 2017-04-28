@@ -294,6 +294,7 @@ let g:html_indent_style1 = "inc"
 " ControlP
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_cache_dir = $HOME.'/.vim/tmp/ctrlp'
+let g:ctrlp_extensions = ['autoignore']
 
 " togglebg#map map en normal, visual et input, faut virer input.
 call togglebg#map("<Leader>b")
