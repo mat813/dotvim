@@ -519,3 +519,6 @@ endfunction
 function! CtrlPStatusFunc_2(str)
   return lightline#statusline(0)
 endfunction
+
+noremap <Leader>c :set cuc!<CR>
+noremap <Leader>C :set cul!<CR>
