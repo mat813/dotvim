@@ -208,3 +208,6 @@
 [submodule "bundle/mojo.vim"]
 	path = bundle/mojo.vim
 	url = https://github.com/mbudde/mojo.vim.git
+[submodule "bundle/salt-vim"]
+	path = bundle/salt-vim
+	url = https://github.com/saltstack/salt-vim.git
