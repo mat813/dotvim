@@ -214,3 +214,6 @@
 [submodule "bundle/tabman"]
 	path = bundle/tabman
 	url = https://github.com/kien/tabman.vim.git
+[submodule "bundle/python-mode"]
+	path = bundle/python-mode
+	url = https://github.com/python-mode/python-mode.git
