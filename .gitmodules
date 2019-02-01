@@ -207,7 +207,7 @@
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule "bundle/mojo.vim"]
 	path = bundle/mojo.vim
-	url = https://github.com/mbudde/mojo.vim.git
+	url = https://github.com/kusabashira/mojo.vim.git
 [submodule "bundle/salt-vim"]
 	path = bundle/salt-vim
 	url = https://github.com/saltstack/salt-vim.git
@@ -217,6 +217,6 @@
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
 	url = https://github.com/python-mode/python-mode.git
-[submodule "bundle/Vim-Jinja2-Syntax"]
-	path = bundle/Vim-Jinja2-Syntax
-	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "bundle/vim-jinja"]
+	path = bundle/vim-jinja
+	url = https://github.com/lepture/vim-jinja.git
