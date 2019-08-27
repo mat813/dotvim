@@ -322,6 +322,8 @@ if has("autocmd")
   augroup END
 endif
 
+let g:pymode_rope_regenerate_on_write = 0
+
 " Teach vim how to open epub files {{{2
 augroup MyEPUB
   au!
@@ -522,3 +524,9 @@ endfunction
 
 noremap <Leader>c :set cuc!<CR>
 noremap <Leader>C :set cul!<CR>
+
+let g:vim_vue_plugin_load_full_syntax=1
+let g:vim_vue_plugin_use_pug=1
+let g:vim_vue_plugin_use_sass=1
+
+"nnoremap :sr1 normal :edit sftp://sr1.absolight.com/out
