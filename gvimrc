@@ -5,7 +5,7 @@ source $HOME/.vimrc
 
 set mouse=a
 
-set guifont=Menlo_Regular:h12
+set guifont=InputMonoNarrow:h14
 set guioptions-=T		  " Hide toolbar.
 set guioptions-=R                 " Don't show right scrollbar
 set guioptions-=r                 " Don't show right scrollbar
