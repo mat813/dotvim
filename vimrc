@@ -324,22 +324,21 @@ endif
 
 let g:pymode_rope_regenerate_on_write = 0
 
-" Teach vim how to open epub files {{{2
 augroup MyEPUB
   au!
   au BufReadCmd   *.epub		call zip#Browse(expand("<amatch>"))
 augroup END
 
-if executable('ag') " {{{2
+if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
-" hardmode. {{{2
+" hardmode.
 nnoremap <silent> <leader>h <Esc>:call EasyMode()<CR>
 nnoremap <silent> <leader>H <Esc>:call HardMode()<CR>
 "
 
-" Abbrev {{{2
+" Abbrev
 augroup MyAbbrevs
   au!
   au FileType gitcommit inoreabbrev -> →
@@ -347,18 +346,18 @@ augroup MyAbbrevs
 augroup END
 "
 
-" Shortcuts for opening file in same directory as current file {{{2
+" Shortcuts for opening file in same directory as current file
 cnoremap <expr> %%  getcmdtype() == ':' ? escape(expand('%:h'), ' \').'/' : '%%'
 nmap <leader>ew :e %%
 nmap <leader>es :sp %%
 nmap <leader>ev :vsp %%
 nmap <leader>et :tabe %%
 
-" ChooseWin plugin {{{2
+" ChooseWin plugin
 nmap  -  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 
-" :CloseHiddenBuffers {{{2
+" :CloseHiddenBuffers
 " Wipe all buffers which are not active (i.e. not visible in a window/tab)
 " Using elements from each of these:
 "   http://stackoverflow.com/questions/2974192
@@ -384,7 +383,7 @@ function! CloseHiddenBuffers()
 endfun
 
 
-" Fugitive.vim {{{2
+" Fugitive.vim
 if has("autocmd")
   " Auto-close fugitive buffers
   autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -397,7 +396,7 @@ if has("autocmd")
 
 endif
 
-" Lightline {{{2
+" Lightline
 
 let g:lightline = {
   \ 'colorscheme': 'solarized',
@@ -525,8 +524,8 @@ endfunction
 noremap <Leader>c :set cuc!<CR>
 noremap <Leader>C :set cul!<CR>
 
-let g:vim_vue_plugin_load_full_syntax=1
 let g:vim_vue_plugin_use_pug=1
 let g:vim_vue_plugin_use_sass=1
+let g:vim_vue_plugin_use_coffee=1
 
 "nnoremap :sr1 normal :edit sftp://sr1.absolight.com/out
