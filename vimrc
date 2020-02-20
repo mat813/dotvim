@@ -1,3 +1,4 @@
+let g:xml_syntax_folding = 1
 " vim: et fdm=marker
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -260,8 +261,8 @@ endif
 if has("autocmd")
   augroup MyXML
     au!
-    autocmd FileType xml setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l noet
-    autocmd FileType docbk setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l noet
+    autocmd FileType xml setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l noet formatexpr=
+    autocmd FileType docbk setlocal sts=2 sw=2 tw=70 cc+=1 fo=tcq2l noet formatexpr=
   augroup END
 endif
 
@@ -317,7 +318,7 @@ if has("autocmd")
   augroup MySVN
     au!
     " need to escape <CR> and <ESC>
-    autocmd BufReadPost svn-commit* exe "normal gg/Sponsored by:\<CR>AAbsolight\<ESC>gg"
+    "autocmd BufReadPost svn-commit* exe "normal gg/Sponsored by:\<CR>AAbsolight\<ESC>gg"
     autocmd FileType svn setlocal sts=8 sw=7 tw=70 cc+=1 fo=tcq2l noet
   augroup END
 endif
@@ -529,3 +530,5 @@ let g:vim_vue_plugin_use_sass=1
 let g:vim_vue_plugin_use_coffee=1
 
 "nnoremap :sr1 normal :edit sftp://sr1.absolight.com/out
+
+let g:pymode_rope = 0
