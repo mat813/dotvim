@@ -344,6 +344,7 @@ augroup MyAbbrevs
   au!
   au FileType gitcommit inoreabbrev -> →
   au FileType gitcommit inoreabbrev kato tkato432 yahoo com
+  au FileType mail inoreabbrev cdlt Cordialement,
 augroup END
 "
 
