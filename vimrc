@@ -125,6 +125,8 @@ Plug 'ervandew/supertab'
 Plug 'garbas/vim-snipmate'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-plug' " Pour la doc
 Plug 'kana/vim-textobj-user'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/tabman.vim'
@@ -599,3 +601,10 @@ let g:vim_vue_plugin_use_coffee=1
 "nnoremap :sr1 normal :edit sftp://sr1.absolight.com/out
 
 let g:pymode_rope = 0
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
