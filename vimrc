@@ -113,6 +113,7 @@ Plug 'Absolight/Bird-Syntax'
 Plug 'Absolight/vim-bind'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-css-color'
@@ -403,6 +404,10 @@ if has("autocmd")
   augroup END
 endif
 "--
+
+" indentLine {{{1
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+noremap <silent> <Leader>i :IndentLinesToggle<CR>
 
 "-- from http://vimcasts.org/episodes/show-invisibles/ {{{1
 " Shortcut to rapidly toggle `set list`
