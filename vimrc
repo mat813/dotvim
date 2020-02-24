@@ -72,7 +72,6 @@ endif
 set undofile
 
 set viminfo='1000,f1,s100,n~/.config/vim/viminfo	" Add a bit more than the default.
-set background=dark		" dark background
 set cindent			" get indentation from C by default
 set foldenable			" do foldings
 set foldmethod=marker		" I like my folds with a marker
@@ -115,7 +114,6 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-css-color'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'chrisbra/NrrwRgn'
@@ -180,6 +178,13 @@ Plug 'xolox/vim-session'
 Plug '~/.config/vim/bundle/augeas'
 
 call plug#end() " }}}
+
+" Base16 {{{1
+let g:base16_shell_path=$HOME.'/.config/base16-shell/scripts/'
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Fugitive.vim {{{1
 if has("autocmd")
@@ -544,17 +549,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
       \ 'active_filetypes': [],
       \ 'passive_filetypes': ['xml', 'docbk'] }
 
-let g:snippets_dir = "$HOME/.vim/bundle/snipmate.vim/snippets/,$HOME/.vim/snippets/"
-
-source $HOME/.vim/colors.vim
-
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
-
-" togglebg#map map en normal, visual et input, faut virer input.
-call togglebg#map("<Leader>b")
-iunmap <Leader>b
 
 noremap <silent> <Leader>n :set nu!<CR>
 noremap <silent> <Leader>w :set wrap!<CR>
