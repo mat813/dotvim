@@ -119,6 +119,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'daviesjamie/vim-base16-lightline'
 Plug 'digitaltoad/vim-pug'
 Plug 'ervandew/supertab'
 Plug 'garbas/vim-snipmate'
@@ -202,7 +203,7 @@ endif
 " Lightline {{{1
 
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'base16',
       \ 'active': { 'left': [ [ 'mode', 'paste' ],
       \                       [ 'fugitive', 'filename' ] ],
       \             'right': [ [ 'syntastic', 'lineinfo' ],
