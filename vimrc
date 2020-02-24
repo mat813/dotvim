@@ -57,21 +57,21 @@ endif
 " end from vimrc_example.vim
 
 set nobackup			" don't keep backups.
-let &directory = expand($HOME) . '/.vim/tmp/,'    . &directory " keep swap elsewhere.
-let &backupdir = expand($HOME) . '/.vim/backup/,' . &backupdir " keep backups elsewhere.
-let &undodir =   expand($HOME) . '/.vim/undo/,'   . &undodir   " keep undo elsewhere.
-if !isdirectory(expand($HOME) . '/.vim/tmp/')
-  call mkdir(expand($HOME) . '/.vim/tmp/', "p")
+let &directory = $HOME . '/.config/vim/tmp/,'    . &directory " keep swap elsewhere.
+let &backupdir = $HOME . '/.config/vim/backup/,' . &backupdir " keep backups elsewhere.
+let &undodir =   $HOME . '/.config/vim/undo/,'   . &undodir   " keep undo elsewhere.
+if !isdirectory($HOME . '/.config/vim/tmp/')
+  call mkdir($HOME . '/.config/vim/tmp/', "p")
 endif
-if !isdirectory(expand($HOME) . '/.vim/backup/')
-  call mkdir(expand($HOME) . '/.vim/backup/', "p")
+if !isdirectory($HOME . '/.config/vim/backup/')
+  call mkdir($HOME . '/.config/vim/backup/', "p")
 endif
-if !isdirectory(expand($HOME) . '/.vim/undo/')
-  call mkdir(expand($HOME) . '/.vim/undo/', "p")
+if !isdirectory($HOME . '/.config/vim/undo/')
+  call mkdir($HOME . '/.config/vim/undo/', "p")
 endif
 set undofile
 
-set viminfo='1000,f1,s100,n~/.vim/viminfo	" Add a bit more than the default.
+set viminfo='1000,f1,s100,n~/.config/vim/viminfo	" Add a bit more than the default.
 set background=dark		" dark background
 set cindent			" get indentation from C by default
 set foldenable			" do foldings
@@ -107,7 +107,7 @@ nnoremap <F1> <Esc>
 
 nnoremap <silent> + :noh<CR>
 
-call plug#begin('~/.vim/plugged') " {{{
+call plug#begin('~/.config/vim/plugged') " {{{
 
 Plug 'Absolight/Bird-Syntax'
 Plug 'Absolight/vim-bind'
@@ -177,7 +177,7 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/ruby-matchit'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug '~/.vim/bundle/augeas'
+Plug '~/.config/vim/bundle/augeas'
 
 call plug#end() " }}}
 
@@ -304,7 +304,7 @@ endfunction
 
 " ControlP {{{1
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_cache_dir = $HOME.'/.vim/tmp/ctrlp'
+let g:ctrlp_cache_dir = $HOME.'/.config/vim/tmp/ctrlp'
 let g:ctrlp_extensions = ['autoignore']
 
 let g:ctrlp_status_func = {
